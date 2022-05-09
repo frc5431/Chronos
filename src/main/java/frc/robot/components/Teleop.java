@@ -6,8 +6,8 @@ import frc.team5431.titan.core.joysticks.Xbox;
 
 public class Teleop{
     private Xbox driver;
-    private final static double SHOOT_SPEED = .6;
-    private final static double INTAKE_SPEED = .5;
+    private final static double SHOOT_SPEED = 1.0; // .6
+    private final static double INTAKE_SPEED = 1.0; // .75 // .5
 
     public Teleop(){
         driver = new Xbox(Constants.DRIVER_JOYSTICK_ID);
@@ -17,10 +17,11 @@ public class Teleop{
 
     public void periodic(final Robot robot){
 
-        final double leftY = driver.getRawAxis(Xbox.Axis.LEFT_Y);
-        final double rightY = driver.getRawAxis(Xbox.Axis.RIGHT_Y);
-
-        robot.getDrivebase().drive(leftY, rightY);
+        // robot.getDrivebase().drive(leftY, rightY);
+        robot.getDrivebase().driveArcade(
+                driver.getRawAxis(Xbox.Axis.LEFT_Y), 
+                driver.getRawAxis(Xbox.Axis.LEFT_X)
+        );
 
         if(driver.getRawButton(Xbox.Button.B)){
             robot.getShooter().shooter(SHOOT_SPEED);
