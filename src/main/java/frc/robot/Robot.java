@@ -1,11 +1,7 @@
 package frc.robot;
 
-import java.sql.Time;
-
 import edu.wpi.first.wpilibj.TimedRobot;
 import frc.robot.components.*;
-
-import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 
 public class Robot extends TimedRobot {
