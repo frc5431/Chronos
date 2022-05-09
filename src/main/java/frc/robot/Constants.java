@@ -4,10 +4,10 @@ public final class Constants {
 
     //Talon SRX's
     public final static int FRONT_LEFT_ID = 2;
-    public final static boolean FRONT_LEFT_INVERTED = true;
+    public final static boolean FRONT_LEFT_INVERTED = false;
 
     public final static int BACK_LEFT_ID = 5;
-    public final static boolean BACK_LEFT_INVERTED = true;
+    public final static boolean BACK_LEFT_INVERTED = false;
     
     public final static int LEFT_SHOOTER_ID = 4;
     public final static boolean LEFT_SHOOTER_INVERTED = true;
@@ -19,10 +19,10 @@ public final class Constants {
     public final static boolean RIGHT_SHOOTER_INVERTED = false;
 
     public final static int BACK_RIGHT_ID = 9;
-    public final static boolean BACK_RIGHT_INVERTED = false;
+    public final static boolean BACK_RIGHT_INVERTED = true;
 
     public final static int FRONT_RIGHT_ID = 8;
-    public final static boolean FRONT_RIGHT_INVERTED = false;
+    public final static boolean FRONT_RIGHT_INVERTED = true;
 
     //Drivers
     public final static int DRIVER_JOYSTICK_ID = 0;
