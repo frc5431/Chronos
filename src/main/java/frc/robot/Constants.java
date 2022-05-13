@@ -26,5 +26,6 @@ public final class Constants {
 
     //Drivers
     public final static int DRIVER_JOYSTICK_ID = 0;
+    public final static int OPERATOR_JOYSTICK_ID = 1;
     public final static double DRIVER_JOYSTICK_DEADZONE = 0.2;
 } 
