@@ -19,7 +19,6 @@ import edu.wpi.first.wpilibj.AnalogInput;
 import edu.wpi.first.wpilibj.Counter;
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.DigitalSource;
-import edu.wpi.first.wpilibj.SpeedController;
 
 /**
  * Namespace for TitanUtil
@@ -420,39 +419,6 @@ public final class Titan {
 		@Override
 		public CommandResult update(final T robot) {
 			return CommandResult.CLEAR_QUEUE;
-		}
-
-		@Override
-		public void done(final T robot) {
-		}
-	}
-	
-	public static class SpeedCommand<T> extends Titan.Command<T> {
-		private final SpeedController controller;
-		private final double speed;
-		private final long durationMS;
-		private long startTime;
-		
-		public SpeedCommand(final double speed, final long durationMS, final SpeedController controller) {
-			this.controller = controller;
-			this.speed = speed;
-			this.durationMS = durationMS;
-		}
-
-		@Override
-		public void init(final T robot) {
-			startTime = System.currentTimeMillis();
-		}
-
-		@Override
-		public CommandResult update(T robot) {
-			controller.set(speed);
-			
-			if (System.currentTimeMillis() >= startTime + durationMS) {
-				return CommandResult.COMPLETE;
-			}
-
-			return CommandResult.IN_PROGRESS;
 		}
 
 		@Override
