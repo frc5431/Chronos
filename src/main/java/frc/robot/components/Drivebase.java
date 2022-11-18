@@ -2,6 +2,7 @@ package frc.robot.components;
 
 import frc.robot.Constants;
 
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Drivebase {
@@ -10,15 +11,19 @@ public class Drivebase {
     public Drivebase(){
         frontLeft = new WPI_TalonSRX(Constants.FRONT_LEFT_ID);
         frontLeft.setInverted(Constants.FRONT_LEFT_INVERTED);
+        frontLeft.setNeutralMode(NeutralMode.Coast);
 
         backLeft = new WPI_TalonSRX(Constants.BACK_LEFT_ID);
         backLeft.setInverted(Constants.BACK_LEFT_INVERTED);
+        backLeft.setNeutralMode(NeutralMode.Coast);
         
         frontRight = new WPI_TalonSRX(Constants.FRONT_RIGHT_ID);
         frontRight.setInverted(Constants.FRONT_RIGHT_INVERTED);
+        frontRight.setNeutralMode(NeutralMode.Coast);
         
         backRight = new WPI_TalonSRX(Constants.BACK_RIGHT_ID);
         backRight.setInverted(Constants.BACK_RIGHT_INVERTED);
+        backRight.setNeutralMode(NeutralMode.Coast);
     }
 
     public void driveLeft(final double val){
