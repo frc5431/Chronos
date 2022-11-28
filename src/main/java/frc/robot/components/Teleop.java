@@ -2,19 +2,19 @@ package frc.robot.components;
 
 import frc.robot.Constants;
 import frc.robot.Robot;
-import frc.team5431.titan.core.joysticks.Xbox;
+import frc.team5431.titan.core.joysticks.CommandXboxController;
 
 public class Teleop{
-    private Xbox driver;
-    private Xbox operator;
+    private CommandXboxController driver;
+    private CommandXboxController operator;
     private final static double SHOOT_SPEED = 1.0; // .6
     private final static double INTAKE_SPEED = 1.0; // .75 // .5
 
     public Teleop(){
-        driver = new Xbox(Constants.DRIVER_JOYSTICK_ID);
+        driver = new CommandXboxController(Constants.DRIVER_JOYSTICK_ID);
         driver.setDeadzone(Constants.DRIVER_JOYSTICK_DEADZONE);
         
-        operator = new Xbox(Constants.OPERATOR_JOYSTICK_ID);
+        operator = new CommandXboxController(Constants.OPERATOR_JOYSTICK_ID);
         operator.setDeadzone(Constants.DRIVER_JOYSTICK_DEADZONE);
     }
 
@@ -22,28 +22,22 @@ public class Teleop{
 
         // robot.getDrivebase().drive(leftY, rightY);
         robot.getDrivebase().driveArcade(
-                driver.getRawAxis(Xbox.Axis.LEFT_Y), 
-                driver.getRawAxis(Xbox.Axis.LEFT_X)
+                driver.getLeftY(), 
+                driver.getLeftX()
         );
 
-        if(operator.getRawButton(Xbox.Button.B)){
+        if(operator.getHID().getBButton()){
             robot.getShooter().shooter(SHOOT_SPEED);
         } else {
             robot.getShooter().shooter(0);
         }
 
-        if(operator.getRawButton(Xbox.Button.B) || operator.getRawButton(Xbox.Button.A)){
+        if(operator.getHID().getBButton() || operator.getHID().getAButton()){
             robot.getIntake().runIntake(INTAKE_SPEED);
-        } else if (operator.getRawButton(Xbox.Button.X)) {
+        } else if (operator.getHID().getXButton()) {
             robot.getIntake().runIntake(-INTAKE_SPEED);
         } else {
             robot.getIntake().runIntake(0);
-        }
-        
+        }   
     }
-
-    public Xbox getDriver(){
-      return driver;
-    }
-
 }
