@@ -38,6 +38,6 @@ public class Teleop{
             robot.getIntake().runIntake(-INTAKE_SPEED);
         } else {
             robot.getIntake().runIntake(0);
-        }   
+        }
     }
 }
