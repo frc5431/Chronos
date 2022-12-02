@@ -12,19 +12,21 @@ public class Robot extends TimedRobot {
 
     private Mode mode = Mode.DISABLED;
 
+    private Systems system = new Systems();
+
     private Drivebase drivebase;
     private Intake intake;
     private Shooter shooter;
 
-    private Teleop teleop;
+    private RobotContainer teleop;
 
     @Override
     public void robotInit(){
-        teleop = new Teleop();
+        teleop = new RobotContainer();
 
-        drivebase = new Drivebase();
-        intake = new Intake();
-        shooter = new Shooter();
+        drivebase = system.getDrivebase();
+        intake = system.getIntake();
+        shooter = system.getShooter();
     }
 
     /**
@@ -62,7 +64,7 @@ public class Robot extends TimedRobot {
         return mode;
     }
 
-    public Teleop getTeleop(){
+    public RobotContainer getTeleop(){
         return teleop;
     }
     
