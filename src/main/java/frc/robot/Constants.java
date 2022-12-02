@@ -1,5 +1,7 @@
 package frc.robot;
 
+import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+
 public final class Constants {
 
     //Talon SRX's
@@ -24,8 +26,10 @@ public final class Constants {
     public final static int FRONT_RIGHT_ID = 8;
     public final static boolean FRONT_RIGHT_INVERTED = true;
 
+    public final static double INTAKE_SPEED = 1.0;
+
     //Drivers
     public final static int DRIVER_JOYSTICK_ID = 0;
     public final static int OPERATOR_JOYSTICK_ID = 1;
     public final static double DRIVER_JOYSTICK_DEADZONE = 0.2;
-} 
+}

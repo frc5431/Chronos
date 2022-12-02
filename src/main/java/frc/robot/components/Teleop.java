@@ -4,7 +4,7 @@ import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.team5431.titan.core.joysticks.CommandXboxController;
 
-public class Teleop{
+public class Teleop {
     private CommandXboxController driver;
     private CommandXboxController operator;
     private final static double SHOOT_SPEED = 1.0; // .6
