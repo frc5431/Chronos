@@ -18,6 +18,9 @@ public final class Constants {
     public final static int RIGHT_SHOOTER_ID = 6;
     public final static boolean RIGHT_SHOOTER_INVERTED = false;
 
+    public final static double SHOOT_SPEED = 1.0; // .6
+    public final static double INTAKE_SPEED = 1.0; // .75 // .5
+
     public final static int BACK_RIGHT_ID = 9;
     public final static boolean BACK_RIGHT_INVERTED = true;
 
