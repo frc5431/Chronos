@@ -7,6 +7,8 @@ public class Vroombase extends SubsystemBase {
     public Spark left;
     public Spark right;
 
+    
+
     public Vroombase (Spark left, Spark right) {
         this.left = left;
         this.right = right;
