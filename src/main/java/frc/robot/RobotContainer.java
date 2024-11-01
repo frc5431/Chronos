@@ -4,56 +4,48 @@
 
 package frc.robot;
 
-import frc.robot.Constants.OperatorConstants;
-import frc.robot.commands.Autos;
+import frc.robot.Constants.IntakeConstants.IntakeModes;
+import frc.robot.Constants.ShooterConstants.ShooterModes;
+import frc.robot.commands.RunIntakeCommand;
+import frc.robot.commands.RunShooterCommand;
 import frc.robot.commands.RunVroombaseCommand;
+import frc.robot.subsystems.Intake;
+import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Vroombase;
-import edu.wpi.first.wpilibj2.command.Command;
-import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
+import frc.team5431.titan.core.joysticks.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
-/**
- * This class is where the bulk of the robot should be declared. Since Command-based is a
- * "declarative" paradigm, very little robot logic should actually be handled in the {@link Robot}
- * periodic methods (other than the scheduler calls). Instead, the structure of the robot (including
- * subsystems, commands, and trigger mappings) should be declared here.
- */
 public class RobotContainer {
   private final Systems systems = new Systems();
   public final Vroombase vroombase = systems.getVroombase();
+  public final Intake intake = systems.getIntake();
+  public final Shooter shooter = systems.getShooter();
   public static final CommandXboxController driver = new CommandXboxController(0);
-  public static final CommandXboxController operator = new CommandXboxController(1);
 
-  /** The container for the robot. Contains subsystems, OI devices, and commands. */
   public RobotContainer() {
     // Configure the trigger bindings
     configureBindings();
   }
 
-  /**
-   * Use this method to define your trigger->command mappings. Triggers can be created via the
-   * {@link Trigger#Trigger(java.util.function.BooleanSupplier)} constructor with an arbitrary
-   * predicate, or via the named factories in {@link
-   * edu.wpi.first.wpilibj2.command.button.CommandGenericHID}'s subclasses for {@link
-   * CommandXboxController Xbox}/{@link edu.wpi.first.wpilibj2.command.button.CommandPS4Controller
-   * PS4} controllers or {@link edu.wpi.first.wpilibj2.command.button.CommandJoystick Flight
-   * joysticks}.
-   */
   private void configureBindings() {
+
+    // driver.setDeadzone(0.3);
+  
+    //driver.setDeadzone(0.15);
+
+
     vroombase.setDefaultCommand(
       new RunVroombaseCommand(vroombase,
-        () -> driver.getLeftY(), () -> driver.getLeftX())
+        () -> driver.getLeftY(), () -> -driver.getLeftX())
     );
+
+    driver.a().whileTrue(new RunIntakeCommand(intake, IntakeModes.INTAKE));
+    driver.b().whileTrue(new RunIntakeCommand(intake, IntakeModes.OUTAKE));
+    driver.rightTrigger().whileTrue(new RunShooterCommand(shooter, ShooterModes.SHOOT));
+    driver.leftTrigger().whileTrue(new RunShooterCommand(shooter, ShooterModes.REVERSE));
+
+
   }
 
   
-  /**
-   * Use this to pass the autonomous command to the main {@link Robot} class.
-   *
-   * @return the command to run in autonomous
-   */
-  // public Command getAutonomousCommand() {
-  //   // An example command will be run in autonomous
-  //   return Autos.exampleAuto(m_exampleSubsystem);
-  // }
 }
