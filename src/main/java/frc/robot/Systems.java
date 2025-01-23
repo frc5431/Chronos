@@ -32,8 +32,8 @@ public class Systems {
         vroomLeftF = new SparkMax(Constants.DrivebaseConstants.leftFID, MotorType.kBrushless);
         vroomRightF = new SparkMax(Constants.DrivebaseConstants.rightFID, MotorType.kBrushless);
 
-        shooterLeft = new SparkMax(Constants.ShooterConstants.leftID, MotorType.kBrushed);
-        shooterRight = new SparkMax(Constants.ShooterConstants.rightID, MotorType.kBrushed);
+        shooterLeft = new SparkMax(Constants.ShooterConstants.leftShooter, MotorType.kBrushed);
+        shooterRight = new SparkMax(Constants.ShooterConstants.rightShooter, MotorType.kBrushed);
 
         vroombase = new Vroombase(vroomLeftB, vroomRightB, vroomLeftF, vroomRightF);
         shooter = new Shooter(shooterLeft, shooterRight);

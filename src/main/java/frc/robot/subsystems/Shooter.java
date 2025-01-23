@@ -16,7 +16,6 @@ public class Shooter extends SubsystemBase {
     public SparkBase shooterRight;
      SparkMaxConfig config = new SparkMaxConfig();
 
-
     public Shooter(SparkBase shooterLeft, SparkBase shooterRight) {
         this.shooterLeft = shooterLeft;
         this.shooterRight = shooterRight;

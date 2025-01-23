@@ -59,8 +59,13 @@ public final class Constants {
 
     public static class ShooterConstants {
 
-      public static final int leftID = 7;
-      public static final int rightID = 8;
+      public static final int leftBack = 3;
+      public static final int rightFront = 4;
+      public static final int leftFront = 5;
+      public static final int rightback = 6;
+      public static final int rightShooter = 7;
+      public static final int leftShooter = 7;
+      public static final int intake = 62;
 
       public static final double p = 1;
       public static final double i = 0;
