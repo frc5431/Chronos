@@ -1,4 +1,2 @@
-# Chronos2019
-Code for the Chronos robot with 2019 standards. 
-
-Fully functional
+# Chronos
+Code for FRC5431's 2016 Robot, Chronos.
