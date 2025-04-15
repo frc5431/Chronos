@@ -12,7 +12,7 @@ import frc.robot.commands.RunVroombaseCommand;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Vroombase;
-import frc.team5431.titan.core.joysticks.CommandXboxController;
+import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 
 public class RobotContainer {
