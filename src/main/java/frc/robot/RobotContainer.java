@@ -30,22 +30,21 @@ public class RobotContainer {
   private void configureBindings() {
 
     // driver.setDeadzone(0.3);
-  
-    //driver.setDeadzone(0.15);
 
+    // driver.setDeadzone(0.15);
 
     vroombase.setDefaultCommand(
-      new RunVroombaseCommand(vroombase,
-        () -> driver.getLeftY(), () -> -driver.getLeftX())
-    );
+        new RunVroombaseCommand(vroombase,
+            () -> driver.getLeftY(), () -> -driver.getLeftX()));
 
     driver.a().whileTrue(new RunIntakeCommand(intake, IntakeModes.INTAKE));
     driver.b().whileTrue(new RunIntakeCommand(intake, IntakeModes.OUTAKE));
     driver.rightTrigger().whileTrue(new RunShooterCommand(shooter, ShooterModes.SHOOT));
     driver.leftTrigger().whileTrue(new RunShooterCommand(shooter, ShooterModes.REVERSE));
 
-
   }
 
-  
+  public void onInitialize() {
+  }
+
 }

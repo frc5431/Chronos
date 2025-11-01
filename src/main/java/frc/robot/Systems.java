@@ -1,12 +1,8 @@
 package frc.robot;
 
-
-
-import com.revrobotics.spark.SparkBase;
 import com.revrobotics.spark.SparkLowLevel.MotorType;
 import com.revrobotics.spark.SparkMax;
 
-import edu.wpi.first.wpilibj.motorcontrol.Spark;
 import frc.robot.subsystems.Intake;
 import frc.robot.subsystems.Shooter;
 import frc.robot.subsystems.Vroombase;
@@ -17,15 +13,15 @@ public class Systems {
     public Shooter shooter;
     public Intake intake;
 
-    public SparkBase intakeMotor;
-    public SparkBase shooterLeft;
-    public SparkBase shooterRight;
-    public SparkBase vroomLeftB;
-    public SparkBase vroomRightB;
-    public SparkBase vroomLeftF;
-    public SparkBase vroomRightF;
-    
-    public Systems () {
+    public SparkMax intakeMotor;
+    public SparkMax shooterLeft;
+    public SparkMax shooterRight;
+    public SparkMax vroomLeftB;
+    public SparkMax vroomRightB;
+    public SparkMax vroomLeftF;
+    public SparkMax vroomRightF;
+
+    public Systems() {
 
         intakeMotor = new SparkMax(Constants.IntakeConstants.id, MotorType.kBrushed);
 
@@ -48,14 +44,12 @@ public class Systems {
         return vroombase;
     }
 
-     public Shooter getShooter() {
+    public Shooter getShooter() {
         return shooter;
     }
 
-     public Intake getIntake() {
+    public Intake getIntake() {
         return intake;
     }
-
-
 
 }

@@ -1,35 +1,31 @@
 package frc.robot.subsystems;
 
-
-import com.revrobotics.spark.SparkBase;
+import com.revrobotics.spark.SparkMax;
 import com.revrobotics.spark.SparkBase.PersistMode;
 import com.revrobotics.spark.SparkBase.ResetMode;
-import com.revrobotics.spark.config.SparkBaseConfig;
+import com.revrobotics.spark.config.SparkMaxConfig;
 import com.revrobotics.spark.config.SparkBaseConfig.IdleMode;
 
 import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.Constants.IntakeConstants.IntakeModes;
 
-
-
 public class Intake extends SubsystemBase {
-    
-    public SparkBase intakeMotor;
-    public SparkBaseConfig intakeMotorConfig;
+
+    public SparkMax intakeMotor;
+    public SparkMaxConfig intakeMotorConfig = new SparkMaxConfig();
     public IntakeModes mode;
 
-    public Intake(SparkBase intakeMotor){
+    public Intake(SparkMax intakeMotor) {
         this.intakeMotor = intakeMotor;
         intakeMotorConfig.idleMode(IdleMode.kCoast);
 
         intakeMotor.configure(intakeMotorConfig, ResetMode.kResetSafeParameters, PersistMode.kNoPersistParameters);
     }
 
-    public void periodic(){
+    public void periodic() {
         SmartDashboard.putNumber("Intake", intakeMotor.getAppliedOutput());
     }
-
 
     public void runIntake(IntakeModes mode) {
         intakeMotor.set(-mode.speed);
